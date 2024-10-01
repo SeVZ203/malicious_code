@@ -10,5 +10,5 @@ Do While counter < 10
     'wshShell.SendKeys "%" ' Alt 키 시뮬레이션
     wshshell.sendkeys "hello"
     wshShell.SendKeys "{ENTER}" ' Enter 키 시뮬레이션
-    counter = counter + 1 ' 카운터 증가
+    'counter = counter + 1 ' 카운터 증가
 Loop
